@@ -1,0 +1,52 @@
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias lsa="ls -a"
+alias nano="sudo nano"
+alias rmrf="sudo rm -rf"
+alias al="nano ~/.aliases"
+alias temp="mkd temp"
+alias apt-get="sudo apt-get"
+alias pip="sudo pip"
+
+# Git aliases
+alias ga="git add"
+alias gaa="git add ."
+alias gs="git status"
+alias gc="git commit -m"
+alias gcl="git clone"
+alias gps="git push"
+alias gpl="git pull"
+alias gro="git remote add origin"
+
+# Detect ls color
+colorflag="--color"
+
+# Get ips
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ifconfig getifaddr en0"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? 
+(addr:)? ?/, \"\"); print}'"
+
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
+
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+
+# System Level Commands
+alias halts="sudo systemctl shutdown"
+alias reboots="sudo systemctl reboot"
+alias heat="vcgencmd measure_temp"
+alias lsapt="dpkg --get-selections | grep"
+alias reload="exec $SHELL -l"
+alias rel="reload"
+
+# Use the git repo for certbot instead of the backport
+alias certbot-auto="/home/pi/dev/certbot/certbot-auto"
+
+# Configurations
+alias smb-conf="nano /etc/samba/smb.conf"
+alias sickrage-conf="nano /opt/sickrage/config.ini"
+alias ssh-conf="nano /etc/ssh/sshd_config"
+alias apt-source-conf="nano /etc/apt/sources.list"

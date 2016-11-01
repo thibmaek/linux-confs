@@ -1,0 +1,9 @@
+[Unit]
+Description=Run certbot-renew-all.service twice a day on a random minute within the hour
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+
+[Install]
+WantedBy=multi-user.target

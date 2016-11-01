@@ -1,0 +1,29 @@
+# Shorthand make dir/file and enter/edit it
+function mkd() {mkdir -p "$@" && cd "$@";}
+function mkf() {touch "$@" && nano "$@";}
+
+# Transfer.sh (https://transfer.sh)
+transfer() {
+  tmpfile=$( mktemp -t transferXXX )
+  basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9]/-/g')
+  curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile;
+  cat $tmpfile;
+  rm -f $tmpfile;
+}
+
+# Display filesize for files & folders
+function fs() {
+  if du -b /dev/null > /dev/null 2>&1; then
+    local arg=-sbh;
+  else
+    local arg=-sh;
+  fi
+  if [[ -n "$@" ]]; then
+    du $arg -- "$@";
+  else
+    du $arg .[^.]* *;
+  fi;
+}
+
+# Shorthand systemctl
+function srv() {sudo systemctl $1 $2;}
