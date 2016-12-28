@@ -3,8 +3,8 @@ export DIR_SYSTEMD_LIB="/lib/systemd/system"
 export DIR_SYSTEMD_ETC="/etc/systemd/system"
 
 # Export webserver directories
-export DIR_NGINX="/etc/nginx"
-export DIR_APACHE="/etc/apache2"
-export DIR_MYSQL="/etc/mysql"
+export NGINX_DIR="/etc/nginx"
+export APACHE_DIR="/etc/apache2"
+export MYSQL_DIR="/etc/mysql"
 export WEBROOT="/var/www"
-export DIR_CERTBOT="/etc/letsencrypt/live"
+export CERTBOT_DIR="/etc/letsencrypt/live"
