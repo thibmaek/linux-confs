@@ -9,16 +9,6 @@ alias temp="mkd temp"
 alias apt-get="sudo apt-get"
 alias pip="sudo pip"
 
-# Git aliases
-alias ga="git add"
-alias gaa="git add ."
-alias gs="git status"
-alias gc="git commit -m"
-alias gcl="git clone"
-alias gps="git push"
-alias gpl="git pull"
-alias gro="git remote add origin"
-
 # Detect ls color
 colorflag="--color"
 
