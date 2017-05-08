@@ -2,8 +2,8 @@
 Description=MongoDB Daemon
 
 [Service]
-ExecStart=/usr/bin/mongod
-ExecStop=kilall /usr/bin/mongod
+ExecStart=/usr/bin/mongod --config /etc/mongod.conf
+ExecStop=killall /usr/bin/mongod
 
 [Install]
 WantedBy=multi-user.target
