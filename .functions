@@ -1,6 +1,9 @@
-# Shorthand make dir/file and enter/edit it
-function mkd() {mkdir -p "$@" && cd "$@";}
-function mkf() {touch "$@" && nano "$@";}
+#!/usr/bin/env bash
+
+# Shorthand make dir and enter
+function mkd() {
+  mkdir -p "$@" && cd "$@"
+}
 
 # Transfer.sh (https://transfer.sh)
 transfer() {
@@ -26,4 +29,6 @@ function fs() {
 }
 
 # Shorthand systemctl
-function srv() {sudo systemctl $1 $2;}
+function srv() {
+  sudo systemctl $1 $2
+}
