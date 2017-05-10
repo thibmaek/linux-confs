@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Export the systemd dir
 export DIR_SYSTEMD_LIB="/lib/systemd/system"
 export DIR_SYSTEMD_ETC="/etc/systemd/system"
