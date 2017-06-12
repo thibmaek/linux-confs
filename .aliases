@@ -1,10 +1,11 @@
+#!/usr/bin/env bash
+
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias lsa="ls -a"
 alias nano="sudo nano"
 alias rmrf="sudo rm -rf"
-alias al="nano ~/.aliases"
 alias temp="mkd temp"
 alias apt-get="sudo apt-get"
 alias pip="sudo pip"
@@ -15,7 +16,7 @@ colorflag="--color"
 # Get ips
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig getifaddr en0"
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? 
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6?
 (addr:)? ?/, \"\"); print}'"
 
 # List all files colorized in long format
@@ -27,13 +28,19 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 # System Level Commands
 alias halts="sudo systemctl shutdown"
 alias reboots="sudo systemctl reboot"
-alias heat="vcgencmd measure_temp"
+
+# Get the CPU temperature in C°
+alias get_cpu_temp="vcgencmd measure_temp"
+
+# Lookup an installed package
 alias lsapt="dpkg --get-selections | grep"
+
+# Get file permissions in octal format
+alias octal="stat -c \"%a %n\""
+
+# Reload the shell (i.e. invoke it as a login shell)
 alias reload="exec $SHELL -l"
 alias rel="reload"
-
-# Use the git repo for certbot instead of the backport
-alias certbot-auto="/home/pi/dev/certbot/certbot-auto"
 
 # Configurations
 alias smb-conf="nano /etc/samba/smb.conf"

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function _update_ps1() {
+  PS1="$($HOME/.powerline-shell/powerline-shell.py $? 2> /dev/null)\n \[${yellow}\]→ "
+}
+
+if [ "$TERM" != "linux" ]; then
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
+PS2="\[${yellow}\]→ \[${reset}\]";
+export PS2

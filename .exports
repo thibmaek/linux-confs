@@ -1,10 +1,19 @@
-# Export the systemd dir
-export DIR_SYSTEMD_LIB="/lib/systemd/system"
-export DIR_SYSTEMD_ETC="/etc/systemd/system"
+#!/usr/bin/env bash
 
-# Export webserver directories
-export NGINX_DIR="/etc/nginx"
-export APACHE_DIR="/etc/apache2"
-export MYSQL_DIR="/etc/mysql"
+# => Set Vim as default editor
+export EDITOR=vim
+
+# => Systemd Services
+export SYSTEMD_LIB="/lib/systemd/system"
+export SYSTEMD_ETC="/etc/systemd/system"
+
+# => Web Directories
+export NGINX_HOME="/etc/nginx"
+export APACHE_HOME="/etc/apache2"
+export MYSQL_HOME="/etc/mysql"
 export WEBROOT="/var/www"
-export CERTBOT_DIR="/etc/letsencrypt/live"
+export CERTBOT_HOME="/etc/letsencrypt/live"
+
+# => Log directories
+export LOGS_DIR="/var/log/"
+export NGINX_LOGS="/var/log/nginx"

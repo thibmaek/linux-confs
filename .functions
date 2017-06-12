@@ -1,9 +1,13 @@
+#!/usr/bin/env bash
+
 # Shorthand make dir/file and enter/edit it
-function mkd() {mkdir -p "$@" && cd "$@";}
-function mkf() {touch "$@" && nano "$@";}
+function mkd() {
+  mkdir -p "$@"
+  cd "$@"
+}
 
 # Transfer.sh (https://transfer.sh)
-transfer() {
+function transfer() {
   tmpfile=$( mktemp -t transferXXX )
   basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9]/-/g')
   curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile;
@@ -26,4 +30,6 @@ function fs() {
 }
 
 # Shorthand systemctl
-function srv() {sudo systemctl $1 $2;}
+function srv() {
+  sudo systemctl $1 $2
+}
