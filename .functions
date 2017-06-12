@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# Shorthand make dir/file and enter/edit it
+# Shorthand make dir and enter
 function mkd() {
-  mkdir -p "$@"
-  cd "$@"
+  mkdir -p "$@" && cd "$@"
 }
 
 # Transfer.sh (https://transfer.sh)
