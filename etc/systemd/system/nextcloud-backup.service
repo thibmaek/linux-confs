@@ -2,9 +2,6 @@
 Description=Backup Nextcloud config dir and mysql db
 
 [Service]
-User=www-data
-Group=www-data
-
 Type=oneshot
 
 # _SERVER and _DATA_DIR envs are preset in a home directory dotfile
