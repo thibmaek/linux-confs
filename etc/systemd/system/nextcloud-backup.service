@@ -1,0 +1,17 @@
+[Unit]
+Description=Backup Nextcloud config dir and mysql db
+
+[Service]
+User=www-data
+Group=www-data
+
+Type=oneshot
+
+# _SERVER and _DATA_DIR envs are preset in a home directory dotfile
+ExecStartPre=/bin/systemctl stop apache2
+ExecStart=/usr/bin/rsync -Aax $NEXTCLOUD_SERVER/config $NEXTCLOUD_DATA_DIR/thibmaek/files/Backups/self/owncloud/ ; \
+            /usr/bin/mysqldump --lock-tables -h [server] -u [username] -p [password] [db_name] > nextcloud-dbbackup_`date +"%Y%m%d"`.bak
+ExecStartPost=/bin/systemctl start apache2
+
+[Install]
+WantedBy=multi-user.target
