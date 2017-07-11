@@ -20,10 +20,12 @@ while getopts "h?d:e:" opt; do
   esac
 done
 
-# Create a new isolated directory
-mkdir -p $HOME/.certbot
-wget -P $HOME/.certbot $_CERTBOT_URL
-chmod a+x $HOME/.certbot/certbot-auto
+# Create a new isolated directory only if it doesn't exist
+if [ ! -d $HOME/.certbot && ! -f $HOME/.certbot/certbot-auto ]; then
+  mkdir -p $HOME/.certbot
+  wget -P $HOME/.certbot $_CERTBOT_URL
+  chmod a+x $HOME/.certbot/certbot-auto
+fi
 
 # Generate a certificate at /etc/letsencrypt/live
 $HOME/.certbot/certbot-auto certonly --standalone \
