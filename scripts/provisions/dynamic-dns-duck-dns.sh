@@ -33,7 +33,7 @@ echo "echo url=\"https://www.duckdns.org/update?domains=$DOMAIN&token=$TOKEN&ip=
 chmod 700 $HOME/.duckdns/update.sh
 
 # Add the update script to the user's crontab
-(crontab -u $(whoami) -l 2>/dev/null; echo "*/5 * * * * $HOME/.duckdns/update.sh >/dev/null 2>&1") | crontab -
+(crontab -l 2>/dev/null; echo "*/5 * * * * $HOME/.duckdns/update.sh >/dev/null 2>&1") | crontab -
 
 # Perform a domain & token check
 sh $HOME/.duckdns/update.sh
