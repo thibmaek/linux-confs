@@ -27,8 +27,8 @@ chmod a+x $HOME/.certbot/certbot-auto
 
 # Generate a certificate at /etc/letsencrypt/live
 $HOME/.certbot/certbot-auto certonly --standalone \
-                                     --standalone-supported-challenges http-01 \
-                                     --email $EMAIL
+                                     --preferred-challenges http-01 \
+                                     --email $EMAIL \
                                      -d $DOMAIN
 
 # Add auto-renewal script to the user's crontab
