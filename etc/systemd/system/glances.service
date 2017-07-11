@@ -2,6 +2,7 @@
 Description=Glances
 
 [Service]
+# Starts a Glances webserver. Use `-s` for starting a Glances server instead
 ExecStart=/usr/local/bin/glances -w
 Restart=on-abort
 
