@@ -22,16 +22,16 @@ done
 
 # Create a new isolated directory only if it doesn't exist
 if [[ ! -d $HOME/.certbot && ! -f $HOME/.certbot/certbot-auto ]]; then
-  mkdir -p $HOME/.certbot
-  wget -P $HOME/.certbot $_CERTBOT_URL
-  chmod a+x $HOME/.certbot/certbot-auto
+  mkdir -p "$HOME/.certbot"
+  wget -P "$HOME/.certbot" "$_CERTBOT_URL"
+  chmod a+x "$HOME/.certbot/certbot-auto"
 fi
 
 # Generate a certificate at /etc/letsencrypt/live
-$HOME/.certbot/certbot-auto certonly --standalone \
-                                     --preferred-challenges http-01 \
-                                     --email $EMAIL \
-                                     -d $DOMAIN
+"$HOME/.certbot/certbot-auto" certonly --standalone \
+                                       --preferred-challenges http-01 \
+                                       --email "$EMAIL" \
+                                       -d "$DOMAIN"
 
 # Add auto-renewal script to the user's crontab
 (crontab -l 2>/dev/null; echo "40 11,23 * * * $HOME/.certbot/certbot-auto renew --quiet --no-self-upgrade >> $HOME/.certbot/certbot_renew.log") | crontab -
