@@ -14,7 +14,7 @@ if [[ ! -d $_NCROOT ]]; then
 fi
 
 occ="$_NCROOT/occ" && echo "occ binary is now: $occ"
-_SAFEPATH=$HOME/nextcloud-$(occ config:system:get version)
+_SAFEPATH=$HOME/nextcloud-$($occ config:system:get version)
 
 while getopts "h?:v:p:" opt; do
   case $opt in
