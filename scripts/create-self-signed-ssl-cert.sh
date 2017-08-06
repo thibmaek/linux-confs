@@ -14,6 +14,6 @@ while getopts "h?be:" opt; do
   esac
 done
 
-openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days $EXPIRY
+openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days "$EXPIRY"
 openssl rsa -in key.pem -out key.pem
 openssl dhparam -out dhparams.pem 2048
