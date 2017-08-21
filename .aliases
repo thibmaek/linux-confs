@@ -7,6 +7,7 @@ alias lsa="ls -a"
 alias nano="sudo nano"
 alias rmrf="sudo rm -rf"
 alias temp="mkd temp"
+alias apt="sudo apt"
 alias apt-get="sudo apt-get"
 alias pip="sudo pip"
 
@@ -33,13 +34,13 @@ alias reboots="sudo systemctl reboot"
 alias get_cpu_temp="vcgencmd measure_temp"
 
 # Lookup an installed package
-alias lsapt="dpkg --get-selections | grep"
+alias aptls="dpkg --get-selections | grep"
 
 # Get file permissions in octal format
 alias octal="stat -c \"%a %n\""
 
 # Reload the shell (i.e. invoke it as a login shell)
-alias reload="exec $SHELL -l"
+alias reload="exec ${SHELL} -l"
 alias rel="reload"
 
 # Configurations
