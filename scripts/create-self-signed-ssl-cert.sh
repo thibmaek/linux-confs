@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# ▲ Creates a self signed SSL certificate, key and D-H Params file.
+
 # -e <days>: generate a certificate with a certain expiriation in days (default: 9999)
 EXPIRY=9999
 

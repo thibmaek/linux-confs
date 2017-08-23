@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# ▲ Scans connected hosts on a given subnet.
+
 if [[ -z $1 ]]; then
   echo "No domain given. Specify gateway address to scan from: e.g 192.168.1.1/24"
 fi

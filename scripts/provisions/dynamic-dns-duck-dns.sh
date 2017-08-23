@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# ▲ Sets up dynamic dns for the public ip through DuckDNS
+#   and sets up refreshing it in the crontab.
+
 # -d <domain>: The Duck DNS domain to update
 # -t <token>: Duck DNS token to authenticate with the service
 DOMAIN=

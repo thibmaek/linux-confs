@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# ▲ Creates a new LetsEncrypt certificate with certbot-auto
+#   and sets up an automatic renewal in the crontab.
+
 # @protected: location to download certbot-auto from
 _CERTBOT_URL=https://dl.eff.org/certbot-auto
 

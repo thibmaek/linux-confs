@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
-# -v <version>: Specific version to upgrade/downgrade. Default: latest
-# -p: Keep the temp working directory @ $_TMP_DIR.
 
+# ▲ Upgrades/downgrades a NextCloud install, also
+#   making a backup of current installation.
+
+# @private: Nextcloud installation folder, temp backup dir
 _NCROOT=/var/www/nextcloud
 _TMPDIR=$HOME/.nextcloud
-VERSION=latest
+
+# @public: URL to interpolate version in
 URL=https://download.nextcloud.com/server/releases/$VERSION.zip
+
+# -v <version>: Specific version to upgrade/downgrade. Default: latest
+# -p: Keep the temp working directory @ $_TMP_DIR.
+VERSION=latest
 PERSIST=false
 
 if [[ ! -d $_NCROOT ]]; then
