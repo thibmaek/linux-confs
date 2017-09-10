@@ -1,8 +1,8 @@
 [Unit]
-Description=Glances
+Description=Glances Web Server
 
 [Service]
-# Starts a Glances webserver. Use `-s` for starting a Glances server instead
+# Starts a Glances webserver bound on port 61208
 ExecStart=/usr/local/bin/glances -w
 Restart=on-abort
 

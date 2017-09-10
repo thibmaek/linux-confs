@@ -1,0 +1,11 @@
+[Unit]
+Description=Glances Server
+
+[Service]
+# Starts a headless Glances server.
+# Connect with `glances -c <host/ip>`
+ExecStart=/usr/local/bin/glances -s
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
