@@ -1,0 +1,23 @@
+# Modified sshd configuration file
+# This configuration adjusts some important security related parameters.
+#
+# The default OpenBSD configuration file can be found here:
+# https://github.com/openssh/openssh-portable/blob/master/sshd_config
+
+# ! MODIFY THIS PARAMETER:
+# Change the default port from 22 to some other port (not in use…)
+Port 7954
+
+# Only use public/private keypairs to authenticate
+PubkeyAuthentication yes
+
+# Disable password login completelty
+PasswordAuthentication no
+
+# Below are default values set and required by the default OpenSSH configuration
+ChallengeResponseAuthentication no
+UsePAM yes
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
