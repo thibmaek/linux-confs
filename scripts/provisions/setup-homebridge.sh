@@ -9,7 +9,7 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 # Check if node is installed
-if ! which node > /dev/null; then
+if ! node -v > /dev/null; then
   echo '[WARN]: Node not installed.'
   exit 1;
 fi
