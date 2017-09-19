@@ -20,7 +20,7 @@ apt install libavahi-compat-libdnssd-dev
 npm install -g homebridge --unsafe-perm
 
 # Copy the repo systemd unit to the systemd folder
-cp ../../etc/systemd/homebridge.service /etc/systemd/
+cp ../../etc/systemd/system/homebridge.service /etc/systemd/
 
 # Add a non-privileged user for running homebridge and create a working directory
 useradd --system homebridge
