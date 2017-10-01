@@ -50,6 +50,9 @@ make install prefix=/usr/local && cd "$_CURRDIR" || exit
 # Download, build and install spotify-ripper from pip
 pip install spotify-ripper-morgaroth
 
+# Make the spotify-ripper home directory
+mkdir -p "$_SR_HOME"
+
 # If there is a keyfile given, set it up
 if [[ -z $KEYFILE && $KEYFILE != '' ]]; then
   cp $KEYFILE $_SR_HOME
