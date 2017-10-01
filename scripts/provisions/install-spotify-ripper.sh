@@ -42,15 +42,15 @@ apt install lame build-essential libffi-dev
 # Download the build of libspotify
 wget "https://developer.spotify.com/download/libspotify/$ARCHBUILD-release.tar.gz"
 tar xvf "$ARCHBUILD-release.tar.gz"
-cd libspotify-12.1.103-Linux-armv6-bcm2708hardfp-release.tar.gz || return
+cd '$ARCHBUILD-release' || exit
 
 # Build libspotify to /usr/local
-make install prefix=/usr/local && cd "$_CURRDIR" || return
+make install prefix=/usr/local && cd "$_CURRDIR" || exit
 
 # Download, build and install spotify-ripper from pip
 pip install spotify-ripper-morgaroth
 
-
+# If there is a keyfile given, set it up
 if [[ -z $KEYFILE && $KEYFILE != '' ]]; then
   cp $KEYFILE $_SR_HOME
 else
