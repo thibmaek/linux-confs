@@ -42,7 +42,7 @@ apt install lame build-essential libffi-dev
 # Download the build of libspotify
 wget "https://developer.spotify.com/download/libspotify/$ARCHBUILD-release.tar.gz"
 tar xvf "$ARCHBUILD-release.tar.gz"
-cd '$ARCHBUILD-release' || exit
+cd "$ARCHBUILD-release" || exit
 
 # Build libspotify to /usr/local
 make install prefix=/usr/local && cd "$_CURRDIR" || exit
