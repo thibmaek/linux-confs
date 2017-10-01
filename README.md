@@ -15,7 +15,7 @@ Lots of stuff!
   - Loose onetime scripts to generate OpenSSL certs locally, scan the local subnet, upgrade all pip modules
 
 # Installation?
-It's a pick & mix! You can manually copy over files with cp, rsync, drag and drop or choose to copy over the whole folder like `cp -R etc/**/* /etc/`. This is in no way a provisioning tool, then you're better off with Puppet or Ansible.
+It's a pick & mix! You can manually copy over files with cp, rsync, drag and drop or choose to copy over the whole folder like `cp -R etc/**/* /etc/`. This is in no way a provisioning tool, then you're better off with Puppet or Ansible. Running headless or automated not recommended since these scripts might require interaction.
 
 # Testing?
 Runs test.sh for shellcheck'ing the files on Travis CI or locally in dev with `./test.sh`
