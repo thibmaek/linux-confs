@@ -18,7 +18,7 @@ while getopts "h?d:e:" opt; do
     e) EMAIL=$OPTARG
       ;;
     h|\?)
-      echo "Syntax: ./create-letsencrypt-cert.sh -d <domain> -e <email>" >&2
+      echo "Syntax: ./create-letsencrypt-cert-from-source.sh -d <domain> -e <email>" >&2
       exit 1
       ;;
   esac
@@ -37,5 +37,7 @@ fi
                                        --email "$EMAIL" \
                                        -d "$DOMAIN"
 
-# Add auto-renewal script to the user's crontab
-(crontab -l 2>/dev/null; echo "40 11,23 * * * $HOME/.certbot/certbot-auto renew --quiet --no-self-upgrade >> $HOME/.certbot/certbot_renew.log") | crontab -
+# Add auto-renewal script to the user's crontab if certs are generated
+if [[ -d /etc/letsencrypt/live ]]; then
+  (crontab -l 2>/dev/null; echo "40 11,23 * * * $HOME/.certbot/certbot-auto renew --quiet --no-self-upgrade >> $HOME/.certbot/certbot_renew.log") | crontab -
+fi
