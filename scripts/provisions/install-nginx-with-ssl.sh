@@ -12,7 +12,7 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 # Install Nginx & stop the systemd service
-apt-get install nginx -y
+apt install nginx -y
 systemctl stop nginx
 
 # Create a self-signed certificate & dhparams file

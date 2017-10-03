@@ -12,5 +12,5 @@ else
 fi
 
 # Install node from the apt-source list & update npm
-apt-get install nodejs
+apt install nodejs
 sudo npm install -g npm

@@ -8,7 +8,6 @@ alias nano="sudo nano"
 alias rmrf="sudo rm -rf"
 alias temp="mkd temp"
 alias apt="sudo apt"
-alias apt-get="sudo apt-get"
 alias pip="sudo pip"
 
 # Detect ls color
