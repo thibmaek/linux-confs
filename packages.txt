@@ -1,0 +1,7 @@
+nmap
+python-devel
+python-pip
+samba
+screen
+vim
+unattended-upgrades
