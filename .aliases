@@ -7,8 +7,12 @@ alias lsa="ls -a"
 alias nano="sudo nano"
 alias rmrf="sudo rm -rf"
 alias temp="mkd temp"
-alias apt="sudo apt"
 alias pip="sudo pip"
+
+# apt (non-sudo & shorthands)
+alias apt="sudo apt"
+alias apt-check-update="apt update && apt list --upgradable -a"
+alias apt-upgrade="apt update && apt list --upgradable -a && apt upgrade -y"
 
 # Detect ls color
 colorflag="--color"
