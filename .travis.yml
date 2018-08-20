@@ -1,8 +1,5 @@
 sudo: required
 dist: trusty
 
-before_install:
-  - sudo apt install shellcheck
-
 script:
   - shellcheck ./scripts/**/*.sh
