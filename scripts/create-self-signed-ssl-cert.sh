@@ -5,7 +5,7 @@
 # -e <days>: generate a certificate with a certain expiriation in days (default: 9999)
 EXPIRY=9999
 
-while getopts "h?be:" opt; do
+while getopts "h?e:" opt; do
   case $opt in
     e) EXPIRY=$OPTARG
       ;;

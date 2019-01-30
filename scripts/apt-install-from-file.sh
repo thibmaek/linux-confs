@@ -5,4 +5,4 @@
 
 # @arg: Text file with listed packages.
 #       For example: packages.txt
-xargs -a $1 sudo apt install
+xargs -a "$1" sudo apt install

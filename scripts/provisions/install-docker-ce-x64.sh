@@ -15,11 +15,11 @@ fi
 
 # @arg: Different architecture to set. Checks for armhf
 if [[ $1 = 'armhf' ]]; then
-  $ARCH=$1
+  ARCH=armhf
 fi
 
 # Install linux-image-extra packages for aufs storage driver access
-apt update && apt install linux-image-extra-$(uname -r) linux-image-extra-virtual
+apt update && apt install "linux-image-extra-$(uname -r)" linux-image-extra-virtual
 
 # If not installed, install safe transport packages for apt
 apt install apt-transport-https ca-certificates curl software-properties-common

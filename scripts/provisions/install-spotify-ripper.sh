@@ -24,7 +24,7 @@ while getopts "h?k:" opt; do
   case $opt in
     k) KEYFILE=$OPTARG
       ;;
-    h)
+    h|\?)
       echo "Syntax: ./install-spotify-ripper.sh <armhf>" >&2
       exit 1
       ;;
@@ -55,7 +55,7 @@ mkdir -p "$_SR_HOME"
 
 # If there is a keyfile given, set it up
 if [[ -z $KEYFILE && $KEYFILE != '' ]]; then
-  cp $KEYFILE $_SR_HOME
+  cp "$KEYFILE" "$_SR_HOME"
 else
   echo "Download an application key file spotify_appkey.key from https://devaccount.spotify.com/my-account/keys/ (requires a Spotify Premium Account) and move the file to the ~/.spotify-ripper directory (or use the -k | --key option)."
   exit 1
