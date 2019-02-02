@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -28,11 +29,11 @@ shopt -s histappend
 shopt -s cdspell
 
 # Load the shell dotfiles, and then some:
-for file in ~/.{aliases,bash_prompt,bash_sources,exports,functions}; do
+for file in ~/.{aliases,bash_prompt,bash_sources,exports,functions,profile_local}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
 # Complete screen names
-complete -C "perl -e '@w=split(/ /,\$ENV{COMP_LINE},-1);\$w=pop(@w);for(qx(screen -ls)){print qq/\$1\n/ if 
+complete -C "perl -e '@w=split(/ /,\$ENV{COMP_LINE},-1);\$w=pop(@w);for(qx(screen -ls)){print qq/\$1\n/ if
 (/^\s*\$w/&&/(\d+\.\w+)/||/\d+\.(\$w\w*)/)}'" screen
