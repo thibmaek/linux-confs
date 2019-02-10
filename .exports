@@ -17,3 +17,7 @@ export CERTBOT_HOME="/etc/letsencrypt/live"
 # => Log directories
 export LOGS_DIR="/var/log/"
 export NGINX_LOGS="/var/log/nginx"
+
+# Expose a variable to get CPU architecture
+ARCH=$(dpkg --print-architecture)
+export ARCH
