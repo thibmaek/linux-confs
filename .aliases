@@ -3,31 +3,27 @@
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
-alias lsa="ls -a"
 alias nano="sudo nano"
 alias rmrf="sudo rm -rf"
 alias temp="mkd temp"
 alias pip="sudo pip"
+
+# `ls` aliases
+alias l="ls -lF --color"
+alias lsa="ls -AF"
+alias lsd="ls -lF --color | grep --color=never '^d'"
+alias lsf="ls -lF --color | grep -v '^d'"
 
 # apt (non-sudo & shorthands)
 alias apt="sudo apt"
 alias apt-check-update="apt update && apt list --upgradable -a"
 alias apt-upgrade="apt update && apt list --upgradable -a && apt upgrade -y"
 
-# Detect ls color
-colorflag="--color"
-
 # Get ips
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6?
 (addr:)? ?/, \"\"); print}'"
-
-# List all files colorized in long format
-alias l="ls -lF ${colorflag}"
-
-# List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
 # System Level Commands
 alias halts="sudo systemctl shutdown"
@@ -43,11 +39,5 @@ alias aptls="dpkg --get-selections | grep"
 alias octal="stat -c \"%a %n\""
 
 # Reload the shell (i.e. invoke it as a login shell)
-alias reload="exec ${SHELL} -l"
+alias reload="exec $SHELL -l"
 alias rel="reload"
-
-# Configurations
-alias smb-conf="nano /etc/samba/smb.conf"
-alias sickrage-conf="nano /opt/sickrage/config.ini"
-alias ssh-conf="nano /etc/ssh/sshd_config"
-alias apt-source-conf="nano /etc/apt/sources.list"
