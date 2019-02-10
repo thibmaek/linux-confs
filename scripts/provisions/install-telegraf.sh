@@ -25,6 +25,11 @@ function install_packages() {
 }
 
 function main() {
+  apt update
+
+  echo "Installing required packages for apt usage over HTTPS..."
+  apt install apt-transport-https
+
   install_packages && \
     echo "" && \
     echo "Telegraf was successfully installed and automatically started."
