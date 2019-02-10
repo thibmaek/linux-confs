@@ -34,6 +34,11 @@ function install_docker_ce() {
 
 # This function is only callable on the script and not part of the main() function
 function use_overlay2_storage_driver() {
+  if docker info | grep "Storage Driver: overlay2"; then
+    echo "Docker is already using overlay2 as its storage driver."
+    exit 0
+  fi
+
   systemctl stop docker
   cp -au /var/lib/docker /var/lib/docker.bk
   {
