@@ -31,6 +31,10 @@ function install_from_git() {
   echo "Installing docker-compose from the official git repository."
   curl -L "$downloadURL" -o /usr/local/bin/docker-compose && \
     chmod +x /usr/local/bin/docker-compose
+
+  echo "Installing bash completion."
+  curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose \
+    -o /etc/bash_completion.d/docker-compose
 }
 
 function main() {
@@ -43,7 +47,8 @@ function main() {
   install_from_git && \
     echo "" && \
     echo "Docker Compose was successfully installed." && \
-    docker-compose --version
+    echo "Bash completion was installed to /etc/bash_completion.d/docker-compose" && \
+    echo "  $(docker-compose --version)"
 }
 
 "${@:-main}"
