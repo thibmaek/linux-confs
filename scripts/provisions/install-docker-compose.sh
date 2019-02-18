@@ -33,7 +33,7 @@ function install_from_git() {
     chmod +x /usr/local/bin/docker-compose
 
   echo "Installing bash completion."
-  curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose \
+  curl -L "https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose" \
     -o /etc/bash_completion.d/docker-compose
 }
 
