@@ -41,6 +41,7 @@ function use_overlay2_storage_driver() {
 
   systemctl stop docker
   cp -au /var/lib/docker /var/lib/docker.bk
+  # TODO: EOF
   {
     :;
     echo "{"
@@ -69,7 +70,7 @@ function main() {
     echo "Docker was successfully installed and automatically started." && \
     echo "Current user $USER has been added to the docker group" && \
     echo "If you want to enable overlay2 support, rerun this script:" && \
-    echo "  sudo ./install-docker-ce.sh use_overlay2_storage_driver"
+    echo "  sudo ./$(basename "$0") use_overlay2_storage_driver"
 }
 
 "${@:-main}"

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -e
+
+# ▲ Installs <pkg>: https://...
+
+# Check if sudo
+if [[ "$EUID" -ne 0 ]]; then
+  echo ""
+  echo "[WARN]: Please run this script as root"
+  echo "  Required permissions: [apt, systemd]"
+  echo ""
+  exit
+fi
+
+function fn() {
+
+}
+
+function main() {
+  fn && \
+    echo "" && \
+    echo "<pkg> was successfully installed and automatically started."
+}
+
+"${@:-main}"

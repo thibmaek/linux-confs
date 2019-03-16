@@ -3,7 +3,7 @@
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
-alias nano="sudo nano"
+alias ....="cd ../../.."
 alias rmrf="sudo rm -rf"
 alias temp="mkd temp"
 alias pip="sudo pip"
@@ -19,12 +19,6 @@ alias apt="sudo apt"
 alias apt-check-update="apt update && apt list --upgradable -a"
 alias apt-upgrade="apt update && apt list --upgradable -a && apt upgrade -y"
 
-# Get ips
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ifconfig getifaddr en0"
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6?
-(addr:)? ?/, \"\"); print}'"
-
 # System Level Commands
 alias halts="sudo systemctl shutdown"
 alias reboots="sudo systemctl reboot"
@@ -39,5 +33,5 @@ alias aptls="dpkg --get-selections | grep"
 alias octal="stat -c \"%a %n\""
 
 # Reload the shell (i.e. invoke it as a login shell)
-alias reload="exec $SHELL -l"
+alias reload="exec \$SHELL -l"
 alias rel="reload"

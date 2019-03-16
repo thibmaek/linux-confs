@@ -15,38 +15,40 @@ fi
 REPO_CLONE_DIR="/opt/miflora-mqtt-daemon"
 
 function install_packages() {
+  echo "Installing required packages..."
   apt install git && \
     apt install python3 python3-pip && \
     apt install bluetooth bluez
 }
 
 function install_repo() {
-  local PREV_DIR
-  PREV_DIR=$(pwd)
+  local prevDir
+  prevDir=$(pwd)
 
+  echo "Cloning ThomDietrich/miflora-mqtt-daemon to $REPO_CLONE_DIR"
   git clone https://github.com/ThomDietrich/miflora-mqtt-daemon.git "$REPO_CLONE_DIR"
   cd "$REPO_CLONE_DIR"
-  sudo pip3 install -r requirements.txt
 
+  echo "Installing repo and configuring..."
+  pip3 install -r requirements.txt
   cp "$REPO_CLONE_DIR"/config.{ini.dist,ini}
-
-  cd "$PREV_DIR"
+  cd "$prevDir"
 
   echo ""
   echo "Systemd service is not automatically installed because config needs to be finetuned first."
   echo "Edit $REPO_CLONE_DIR/config.ini first and then install the service using:"
-  echo "  \$ ./install-miflora-mqtt-daemon.sh install_systemd_service"
+  echo "  $ ./install-miflora-mqtt-daemon.sh install_systemd_service"
   echo ""
 }
 
 function install_systemd_service() {
-  sudo cp "$REPO_CLONE_DIR"/template.service /etc/systemd/system/miflora-mqtt-daemon.service
-  sudo systemctl daemon-reload
+  cp "$REPO_CLONE_DIR"/template.service /etc/systemd/system/miflora-mqtt-daemon.service
+  systemctl daemon-reload
 
-  sudo systemctl start miflora-mqtt-daemon.service
-  sudo systemctl status miflora-mqtt-daemon.service
+  systemctl start miflora-mqtt-daemon.service
+  systemctl status miflora-mqtt-daemon.service
 
-  sudo systemctl enable miflora-mqtt-daemon.service
+  systemctl enable miflora-mqtt-daemon.service
 }
 
 function main() {

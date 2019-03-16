@@ -21,6 +21,7 @@ function enable_upgrades() {
   cp /etc/apt/apt.conf.d/50unattended-upgrades /etc/apt/apt.conf.d/50unattended-upgrades.orig
 
   echo "Writing base configuration to to /etc/apt/apt.conf.d/50unattended-upgrades"
+  # TODO: EOF
   {
     :;
     echo "Unattended-Upgrade::Origins-Pattern {"

@@ -1,0 +1,9 @@
+[Unit]
+Description=Datadog Agent
+
+[Service]
+ExecStart=/home/<user>/.datadog-agent/bin/agent start
+ExecStop=/home/<user>/.datadog-agent/bin/agent stop
+
+[Install]
+WantedBy=multi-user.target
