@@ -1,5 +1,0 @@
-sudo: required
-dist: trusty
-
-script:
-  - shellcheck ./scripts/**/*.sh
