@@ -1,9 +1,0 @@
-[Unit]
-Description=Datadog Agent
-
-[Service]
-ExecStart=/home/pi/.datadog-agent/bin/agent start
-ExecStop=/home/pi/.datadog-agent/bin/agent stop
-
-[Install]
-WantedBy=multi-user.target

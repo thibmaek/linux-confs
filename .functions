@@ -2,16 +2,16 @@
 
 # Shorthand make dir and enter
 function mkd() {
-  mkdir -p "$@" && cd "$@"
+  mkdir -p "$@" && cd "$@" || return
 }
 
 # Transfer.sh (https://transfer.sh)
 function transfer() {
-  tmpfile=$( mktemp -t transferXXX )
+  tmpfile=$(mktemp -t transferXXX)
   basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9]/-/g')
-  curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile;
-  cat $tmpfile;
-  rm -f $tmpfile;
+  curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> "$tmpfile"
+  cat "$tmpfile"
+  rm -f "$tmpfile"
 }
 
 # Display filesize for files & folders
@@ -29,6 +29,4 @@ function fs() {
 }
 
 # Shorthand systemctl
-function srv() {
-  sudo systemctl $1 $2
-}
+function srv() { sudo systemctl "$@"; }

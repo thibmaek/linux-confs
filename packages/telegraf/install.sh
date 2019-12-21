@@ -13,16 +13,18 @@ if [[ "$EUID" -ne 0 ]]; then
 fi
 
 function install_packages() {
-  curl -sL https://repos.influxdata.com/influxdb.key | apt-key add -
-  echo "deb https://repos.influxdata.com/debian stretch stable" | \
-    tee /etc/apt/sources.list.d/influxdb.list
+  curl -sL https://repos.influxdata.com/influxdb.key | apt-key add - && \
+    echo "deb https://repos.influxdata.com/debian stretch stable" | \
+      tee /etc/apt/sources.list.d/influxdb.list
 
-  apt update
-  apt install telegraf
+  apt update && \
+    apt install telegraf
 
-  systemctl enable telegraf
-  systemctl start telegraf
+  systemctl enable telegraf && \
+    systemctl start telegraf
 }
+
+# TODO: install scripts
 
 function main() {
   apt update
