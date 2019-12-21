@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:11-alpine
+    env_file: env.nextcloud
+    volumes:
+      - db:/var/lib/postgresql/data
+    restart: always
+
+  app:
+    image: nextcloud:fpm-alpine
+    env_file: env.nextcloud
+    user: 1000:1000
+    volumes:
+      - nextcloud:/var/www/html
+      - ./config/config.php:/var/www/html/config/config.php
+    depends_on:
+      - db
+    restart: always
+
+  web:
+    build: ./web
+    ports:
+      - 8181:80
+    volumes:
+      - nextcloud:/var/www/html:ro
+    depends_on:
+      - app
+    restart: always
+
+volumes:
+  db:
+  nextcloud:

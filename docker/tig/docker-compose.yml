@@ -1,0 +1,24 @@
+version: "2"
+
+services:
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    volumes:
+      - /opt/appdata/influxdb:/var/lib/influxdb
+    restart: always
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    env_file: env.grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana_data:/var/lib/grafana
+      - ./config.ini:/usr/share/grafana/conf/defaults.ini
+    depends_on:
+      - influxdb
+    restart: always
