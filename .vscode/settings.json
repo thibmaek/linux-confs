@@ -2,7 +2,7 @@
   "files.associations": {
     "**/etc/ssh/**": "ssh_config",
     "**/etc/nginx/**": "nginx",
-    "**/etc/telegraf/**": "toml",
+    "**/etc/telegraf/**/*.conf": "toml",
     "**/etc/systemd/system/**": "systemd-unit-file",
   }
 }
