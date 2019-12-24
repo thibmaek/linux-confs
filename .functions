@@ -28,5 +28,19 @@ function fs() {
   fi;
 }
 
-# Shorthand systemctl
-function srv() { sudo systemctl "$@"; }
+## SYSTEMD
+function sysd() {
+  sudo systemctl "$@"
+}
+
+function sysd-logs() {
+  if [ -z "$1" ]; then
+    echo ""
+    echo "Usage: sysd-logs <unit>"
+    echo "  e.g: sysd-logs telegraf"
+    echo ""
+    return
+  fi
+
+  sudo journalctl -u "$1" -f
+}
